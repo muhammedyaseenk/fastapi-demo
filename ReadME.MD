@@ -191,7 +191,37 @@ Body:
    * Category breakdown
 
 ---
+flowchart LR
+  subgraph Client
+    A[User / Client (Postman / Browser)]
+  end
 
+  subgraph API["FastAPI App\n(main.py)"]
+    direction TB
+    B1[Routes\nPOST /users\nPOST /expenses\nGET /expenses/{user_id}\nGET /totals/{user_id}]
+    B2[schemas.py\nPydantic validation]
+    B3[services.py\nSQLAlchemy models + async DB + business logic]
+  end
+
+  subgraph DB["SQLite DB\n(test.db)"]
+    C[SQLite (aiosqlite) file]
+  end
+
+  subgraph Infra["Optional: Docker"]
+    D[Dockerfile / compose]
+  end
+
+  A -->|HTTP JSON| B1
+  B1 --> B2
+  B1 --> B3
+  B3 -->|async SQL| C
+  D -.-> B1
+
+  classDef app fill:#f8f9fa,stroke:#333,stroke-width:1px;
+  class API app;
+  style DB fill:#fff3cd,stroke:#c69500
+  style Infra fill:#e6f0ff,stroke:#2b6cb0
+---
 ## ✅ This Project Covers All Machine Test Requirements
 
 ✔ SQLAlchemy ORM
