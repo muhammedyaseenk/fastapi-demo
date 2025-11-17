@@ -1,6 +1,27 @@
-app\__pycache__
-__pycache__
-test.dbs
-env
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+env/
+
+# SQLite DB
+*.db
+*.sqlite
+
+# Environment variables
 .env
-api
+
+# VSCode
+.vscode/
+
+# Byte-compiled files
+*.pyo
+*.pyd
+*.pdb
+
+# Docker
+__pycache__/
+data/
