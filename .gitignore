@@ -1,2 +1,6 @@
- __pycache__
- 
+app\__pycache__
+__pycache__
+test.dbs
+env
+.env
+api
