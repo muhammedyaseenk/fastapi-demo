@@ -25,3 +25,6 @@ env/
 # Docker
 __pycache__/
 data/
+
+# other IDE files or foders
+api
